@@ -3,10 +3,13 @@ import { useSelector, useDispatch } from 'react-redux';
 import DefaultLayout from '../components/DefaultLayout';
 import { getAllCars } from '../redux/actions/carsActions';
 import { Row, Col, Button } from 'antd';
+import Spinner from '../components/Spinner';
+
 
 
 function Home() {
-  const {cars, loading} = useSelector(state=>state.carsReducer)
+  const {cars} = useSelector(state=>state.carsReducer)
+  const {loading} = useSelector(state => state.alertsReducer)
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -15,6 +18,8 @@ function Home() {
 
   return (
     <DefaultLayout>
+
+    {loading === true && (<Spinner />)}
 
       <Row justify="center" gutter={16} className="mt-5">
 
