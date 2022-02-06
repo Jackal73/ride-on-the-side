@@ -23,6 +23,19 @@ h1 {
   color: orangered;
 }
 
+p {
+  margin: 5px !important;
+  text-align: left;
+  padding: 0;
+}
+
+.btn1 {
+  box-shadow: none !important;
+  background-color: #fff !important;
+  color: orangered !important;
+  border: 1px solid orangered !important;
+}
+
 .header {
   padding: 10px;
 
@@ -31,4 +44,10 @@ h1 {
 .content {
   min-height: 90vh;
 
+}
+
+.carimg {
+  height: 180px;
+  width: auto;
+  border-radius: 5px;
 }
