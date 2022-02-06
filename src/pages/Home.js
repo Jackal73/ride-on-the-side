@@ -25,10 +25,10 @@ function Home() {
 
         {cars.map(car => {
           return <Col lg={5} sm={24} xs={24}>
-            <div className="car p-2 bs1 mt-3">
-              <img src={car.image} className="carimg" alt=""/>
+            <div className="card p-2 bs1">
+              <img src={car.image} className="card-img" alt=""/>
 
-              <div className="car-content d-flex align-items-center justify-content-between">
+              <div className="card-content d-flex align-items-center justify-content-between">
 
                 <div className="">
                   <p>{car.name}</p>

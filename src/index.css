@@ -34,6 +34,7 @@ p {
   margin: 5px !important;
   text-align: left;
   padding: 0;
+  font-weight: bold;
 }
 
 .btn1 {
@@ -53,8 +54,38 @@ p {
 
 }
 
-.carimg {
+
+/* UI purposes. No functionality */
+.card {
+  background-color: rgba(205, 184, 245, 0.651) !important;
+  border-radius: 5px;
+  margin-top: 100px;
+  height: 160px;
+  transition: 0.3s;
+}
+
+.card:hover {
+  height: 220px;
+}
+
+.card:hover > .card-content {
+  opacity: 1;
+  transform: translateY(-40px);
+}
+
+.card-img {
   height: 180px;
   width: auto;
   border-radius: 5px;
+  transform: translateY(-50px);
+
 }
+
+.card-content {
+  transform: translateY(-200px);
+  opacity: 0;
+  transition: 0.3s;
+
+}
+
+
