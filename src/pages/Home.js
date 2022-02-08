@@ -35,8 +35,8 @@ function Home() {
                   <p>{car.rentPerHour} Per Hour </p>
                 </div>
 
-                <div className="btn1 mr-2">
-                  <button className="">Book Now</button>
+                <div>
+                  <button className="btn1 mr-2">Book Now</button>
                 </div>
 
               </div>
