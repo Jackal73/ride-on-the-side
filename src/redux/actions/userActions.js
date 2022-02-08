@@ -1,5 +1,5 @@
+import { message } from 'antd';
 import axios from 'axios';
-import { message } from 'antd'
 
 export const userLogin = (reqObj) => async dispatch => {
 
@@ -16,6 +16,10 @@ export const userLogin = (reqObj) => async dispatch => {
       type: 'LOADING',
       payload: false
     })
+    setTimeout(() => {
+      window.location.href='/'
+
+    }, 500);
   } catch (error) {
     console.log(error)
     message.error('Something went wrong...')
@@ -34,13 +38,20 @@ export const userRegister = (reqObj) => async dispatch => {
   })
 
   try {
-    const response = await axios.post('/api/users/login', reqObj)
+    const response = await axios.post('/api/users/register', reqObj)
+    message.success('Registration was successful!')
+    setTimeout(() => {
+      window.location.href='/'
+
+    }, 500);
+
+
 
     dispatch({
       type: 'LOADING',
       payload: false
     })
-    message.success('Registration was successful!')
+
   } catch (error) {
     console.log(error)
     message.error('Something went wrong...')
