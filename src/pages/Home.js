@@ -4,16 +4,17 @@ import DefaultLayout from '../components/DefaultLayout';
 import { getAllCars } from '../redux/actions/carsActions';
 import { Row, Col, Button } from 'antd';
 import Spinner from '../components/Spinner';
-
-
+import { Link } from 'react-router-dom';
 
 function Home() {
   const {cars} = useSelector(state=>state.carsReducer)
   const {loading} = useSelector(state => state.alertsReducer)
+  
   const dispatch = useDispatch()
 
   useEffect(() => {
     dispatch(getAllCars())
+    
   }, [])
 
   return (
@@ -36,7 +37,7 @@ function Home() {
                 </div>
 
                 <div>
-                  <button className="btn1 mr-2">Book Now</button>
+                  <button className="btn1 mr-2"><Link to={`/booking/${car._id}`}>Book Now</Link></button>
                 </div>
 
               </div>

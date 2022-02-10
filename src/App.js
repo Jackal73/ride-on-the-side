@@ -18,7 +18,7 @@ function App() {
                 <ProtectedRoute path='/' exact component={Home} />
                 <Route path='/login' exact component={Login} />
                 <Route path='/register' exact component={Register} />
-                <protectedRoute path='/bookingcar' exact component={BookingCar} />
+                <ProtectedRoute path='/booking/:carid' exact component={BookingCar} />
 
             </BrowserRouter>
         </div>
