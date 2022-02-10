@@ -7,17 +7,17 @@ function DefaultLayout(props) {
   const menu = (
     <Menu>
     <Menu.Item>
-        <a href="https://www.antgroup.com">
+        <a href="/">
           Home
         </a>
       </Menu.Item>
       <Menu.Item>
-        <a href="https://www.antgroup.com">
+        <a href="/userbookings">
           Bookings
         </a>
       </Menu.Item>
       <Menu.Item>
-        <a href="https://www.aliyun.com">
+        <a href="/admin">
           Profile
         </a>
       </Menu.Item>
