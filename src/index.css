@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
 
 body {
   margin: 0;
@@ -26,15 +26,14 @@ code {
 
 h1 {
   font-size: 30px;
-  font-weight: semi-bold;
+  font-weight: bold;
   /* color: orangered; */
 }
 
 p {
-  margin: 5px !important;
-  text-align: left;
+  margin: 5px !important;  
   padding: 0;
-  font-weight: bold;
+  /* font-weight: bold; */
 }
 
 .btn1 {
@@ -146,11 +145,17 @@ button {
   transform: translateY(-50%, -50%);
   font-size: 35px;
   opacity: 0.2 !important;
-  border-bottom: 1px dashed rgba(255, 255, 255, 0.4);
+  /* border-bottom: 1px dashed rgba(255, 255, 255, 0.4); */
 }
 
 .login a {
   /* color: rgba(255, 255, 255, 0.5); */
   color: white !important;
   opacity: 0.5;
+}
+
+.carimg2 {
+  height: 400px;
+  border-radius: 10px;
+  width: auto;
 }
