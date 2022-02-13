@@ -9,12 +9,12 @@ import { Link } from 'react-router-dom';
 function Home() {
   const {cars} = useSelector(state=>state.carsReducer)
   const {loading} = useSelector(state => state.alertsReducer)
-  
+
   const dispatch = useDispatch()
 
   useEffect(() => {
     dispatch(getAllCars())
-    
+
   }, [])
 
   return (
@@ -25,7 +25,7 @@ function Home() {
       <Row justify="center" gutter={16} className="mt-5">
 
         {cars.map(car => {
-          return <Col lg={5} sm={24} xs={24}>
+          return <Col xl={5} lg={5} sm={12} xs={24}>
             <div className="card p-2 bs1">
               <img src={car.image} className="card-img" alt=""/>
 
@@ -37,7 +37,7 @@ function Home() {
                 </div>
 
                 <div>
-                  <button className="btn1 mr-2"><Link to={`/booking/${car._id}`}>Book Now</Link></button>
+                  <button className="btn1 mr-2"><Link to={`/booking/${car._id}`} className="btn2">Book Now<span className="appear"> !</span></Link></button>
                 </div>
 
               </div>

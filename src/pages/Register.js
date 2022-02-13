@@ -5,8 +5,8 @@ import 'aos/dist/aos.css'; // You can also use <link> for styles
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from "react-router-dom";
-import { userRegister } from '../redux/actions/userActions';
 import Spinner from '../components/Spinner';
+import { userRegister } from '../redux/actions/userActions';
 // ..
 AOS.init();
 

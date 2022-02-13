@@ -1,12 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
 
-body {
-  margin: 0;
-  font-family: 'Montserrat', sans-serif !important;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background-color: rgba(74, 87, 50, 0.192);
-}
+
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
@@ -27,30 +21,54 @@ code {
 h1 {
   font-size: 30px;
   font-weight: bold;
-  /* color: orangered; */
+  color: red;
 }
 
 p {
-  margin: 5px !important;  
+  margin: 5px !important;
   padding: 0;
-  /* font-weight: bold; */
+  font-weight: semi-bold;
+  color: rgba(0, 0, 0, 0.8);
 }
 
 .btn1 {
   box-shadow: none !important;
-  background-color: #fff !important;
-  color: orangered !important;
-  border: 1px solid orangered !important;
+  background-color: rgb(158, 196, 187) !important;
+  color: #000 !important;
+  border-radius: 3px !important;
+  border: 1px solid rgba(255, 0, 0, 0) !important;
   padding: 5px 15px !important;
   outline: none !important;
 }
 
-.btn1:focus {
-  border: none;
+.btn2 {
+  color: #000 !important;
+}
+
+.btn1:hover {
+  color: #000 !important;
+  border: 1px solid red !important;
+}
+
+.btn2:hover {
+  color: #000 !important;
+}
+
+.appear {
+  opacity: 0 !important;
+}
+
+.btn2:hover .appear {
+  opacity: 1 !important;
 }
 
 button {
   padding: 3px 10px !important;
+  color: #000 !important;
+}
+
+button:hover {
+  color: #000 !important;
 }
 
 .header {
@@ -64,9 +82,10 @@ button {
 
 .header .ant-btn {
   box-shadow: none !important;
-  background-color: #fff !important;
-  color: orangered !important;
-  border: 1px solid orangered !important;
+  background-color: rgb(158, 196, 187) !important;
+  color: #000 !important;
+  border: 1px solid red !important;
+  border-radius: 3px !important;
   padding: 5px 15px !important;
   outline: none !important;
 }
@@ -76,10 +95,18 @@ button {
 
 }
 
+body {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #8b994f;
+}
+
 
 /* UI purposes. No functionality */
 .card {
-  background-color: rgba(205, 184, 245, 0.651) !important;
+  background-color: #c6d166 !important;
   border-radius: 5px;
   margin-top: 100px;
   height: 160px;
@@ -93,6 +120,7 @@ button {
 .card:hover > .card-content {
   opacity: 1;
   transform: translateY(-40px);
+  transition: 0.4s !important;
 }
 
 .card-img {
@@ -100,6 +128,8 @@ button {
   width: auto;
   border-radius: 5px;
   transform: translateY(-50px);
+
+
 
 }
 
