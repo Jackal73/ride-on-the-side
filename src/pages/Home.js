@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import DefaultLayout from '../components/DefaultLayout';
 import { getAllCars } from '../redux/actions/carsActions';
-import { Row, Col, Button } from 'antd';
+import { Row, Col, } from 'antd';
 import Spinner from '../components/Spinner';
 import { Link } from 'react-router-dom';
 

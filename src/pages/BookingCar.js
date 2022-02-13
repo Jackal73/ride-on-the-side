@@ -10,7 +10,7 @@ import { getAllCars } from '../redux/actions/carsActions';
 
 const { RangePicker } = DatePicker;
 
-function BookingCar({match}) {
+function BookingCar({ match }) {
   const {cars} = useSelector(state => state.carsReducer)
   const {loading} = useSelector(state => state.alertsReducer)
   const [car, setcar] = useState({})
@@ -38,7 +38,7 @@ function BookingCar({match}) {
       setTotalAmount(totalAmount + (20 * totalHours))
     }
 
-  }, [driver, totalHours, car.rentPerHour])
+  }, [driver, totalHours])
 
   function selectTimeSlots(values) {
 
@@ -58,8 +58,8 @@ function BookingCar({match}) {
       driverRequired : driver,
       bookedTimeSlots : {
         from,
-        to
-      }
+        to,
+      },
     }
 
     dispatch(bookCar(reqObj));
@@ -76,7 +76,7 @@ function BookingCar({match}) {
       </Col>
 
       <Col lg={10} sm={24} xs={24} className='text-right'>
-        <Divider type='horizontal' dashed style={{fontWeight: 'semi-bold'}} >Car Info</Divider>
+        <Divider type='horizontal' dashed style={{fontWeight: 'bold'}} >Car Info</Divider>
         <div className="" style={{ textAlign: 'right' }} >
           <p>{car.name}</p>
           <p>{car.rentPerHour} Rent Per Hour</p>
@@ -84,7 +84,7 @@ function BookingCar({match}) {
           <p>Max Persons : {car.capacity}</p>
         </div>
 
-        <Divider type='horizontal' dashed style={{fontWeight: 'semi-bold'}} >Select Time Slots</Divider>
+        <Divider type='horizontal' dashed style={{fontWeight: 'bold'}} >Select Time Slots</Divider>
         {/* <RangePicker format='MMM DD YYYY h:00 a' onChange={selectTimeSlots} /> */}
         <RangePicker showTime={{format: 'h:00 a'}} format='MMM DD YYYY h:00 a' onChange={selectTimeSlots} />
 
