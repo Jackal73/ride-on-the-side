@@ -42,10 +42,10 @@ function BookingCar({match}) {
 
   function selectTimeSlots(values) {
 
-    setFrom(moment(values[0]).format('MMM DD YYYY h:00 a'))
-    setTo(moment(values[1]).format('MMM DD YYYY h:00 a'))
+    setFrom(moment(values[0]).format('MMM DD YYYY h:00 a'));
+    setTo(moment(values[1]).format('MMM DD YYYY h:00 a'));
 
-    setTotalHours(values[1].diff(values[0] +1, 'Hours'))
+    setTotalHours(1 + (values[1].diff(values[0], 'Hours')));
 
   }
 
@@ -55,7 +55,7 @@ function BookingCar({match}) {
       car: car._id,
       totalHours,
       totalAmount,
-      driverRequire : driver,
+      driverRequired : driver,
       bookedTimeSlots : {
         from,
         to
