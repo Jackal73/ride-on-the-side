@@ -37,7 +37,7 @@ function Home() {
                 </div>
 
                 <div>
-                  <button className="btn1 mr-2"><Link to={`/booking/${car._id}`} className="btn2">Book Now<span className="appear"> !</span></Link></button>
+                  <button className="btn2 mr-2"><Link to={`/booking/${car._id}`} className="btn3">Book Now<span className="appear"> !</span></Link></button>
                 </div>
 
               </div>

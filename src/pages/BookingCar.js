@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { Checkbox, Col, DatePicker, Divider, Row } from 'antd';
+import moment from 'moment';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import DefaultLayout from '../components/DefaultLayout';
 import Spinner from '../components/Spinner';
-import { Row, Col, Divider, DatePicker } from 'antd';
+import { bookCar } from '../redux/actions/bookingActions';
 import { getAllCars } from '../redux/actions/carsActions';
-import moment from 'moment';
+
 
 const { RangePicker } = DatePicker;
 
@@ -13,9 +15,11 @@ function BookingCar({match}) {
   const {loading} = useSelector(state => state.alertsReducer)
   const [car, setcar] = useState({})
   const dispatch = useDispatch()
-  const[from, setFrom] = useState()
+  const [from, setFrom] = useState()
   const [to, setTo] = useState()
   const [totalHours, setTotalHours] = useState(0)
+  const [driver, setdriver] = useState(false)
+  const [totalAmount, setTotalAmount] = useState(0)
 
   useEffect(() => {
 
@@ -27,13 +31,38 @@ function BookingCar({match}) {
 
   }, [cars]);
 
+  useEffect(() => {
+
+    setTotalAmount((totalHours * car.rentPerHour))
+    if (driver) {
+      setTotalAmount(totalAmount + (20 * totalHours))
+    }
+
+  }, [driver, totalHours, car.rentPerHour])
+
   function selectTimeSlots(values) {
-    console.log(moment(values[0]).format('MMM DD YYYY h:00 a'));
-    console.log(moment(values[1]).format('MMM DD YYYY h:00 a'));
+
     setFrom(moment(values[0]).format('MMM DD YYYY h:00 a'))
     setTo(moment(values[1]).format('MMM DD YYYY h:00 a'))
 
-    setTotalHours(values[1].diff(values[0], 'Hours'))
+    setTotalHours(values[1].diff(values[0] +1, 'Hours'))
+
+  }
+
+  function bookNow() {
+    const reqObj = {
+      user : JSON.parse(localStorage.getItem('user'))._id,
+      car: car._id,
+      totalHours,
+      totalAmount,
+      driverRequire : driver,
+      bookedTimeSlots : {
+        from,
+        to
+      }
+    }
+
+    dispatch(bookCar(reqObj));
 
   }
 
@@ -60,14 +89,24 @@ function BookingCar({match}) {
         <RangePicker showTime={{format: 'h:00 a'}} format='MMM DD YYYY h:00 a' onChange={selectTimeSlots} />
 
         <div className="">
-          <p>Total Hours : {totalHours}</p>
+          <p>Total Hours : <b>{totalHours}</b></p>
+          <p>Price Per Hour : <b>{car.rentPerHour}</b></p>
+          <Checkbox onChange = {(e) => {
+            if(e.target.checked)
+            {
+              setdriver(true);
+            }
+            else {
+              setdriver(false)
+            }
+          }}>Driver Required (20/hr)</Checkbox>
+          <h3 className="">Total Amount : {totalAmount}</h3>
+          <button className="btn4" onClick={bookNow}><b>Save Your Booking</b></button>
         </div>
 
       </Col>
 
     </Row>
-      {/* <h1>Booking Car</h1>
-      <h1>Car Name = {car.name}</h1> */}
   </DefaultLayout>
   );
 }
