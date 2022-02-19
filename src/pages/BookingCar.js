@@ -2,6 +2,7 @@ import { Checkbox, Col, DatePicker, Divider, Modal, Row } from 'antd';
 import moment from 'moment';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import StripeCheckout from 'react-stripe-checkout';
 import DefaultLayout from '../components/DefaultLayout';
 import Spinner from '../components/Spinner';
 import { bookCar } from '../redux/actions/bookingActions';
@@ -47,25 +48,25 @@ function BookingCar({ match }) {
     setTo(moment(values[1]).format('MMM DD YYYY hh:00 a'));
 
     setTotalHours( (values[1].diff(values[0], 'Hours')));
-
   }
 
-  function bookNow() {
-    const reqObj = {
-      user : JSON.parse(localStorage.getItem('user'))._id,
-      car: car._id,
-      totalHours,
-      totalAmount,
-      driverRequired : driver,
-      bookedTimeSlots : {
-        from,
-        to,
-      },
-    }
-
-    dispatch(bookCar(reqObj));
-
+function onToken(token) {
+  const reqObj = {
+    token,
+    user : JSON.parse(localStorage.getItem('user'))._id,
+    car: car._id,
+    totalHours,
+    totalAmount,
+    driverRequired : driver,
+    bookedTimeSlots : {
+      from,
+      to,
+    },
   }
+
+  dispatch(bookCar(reqObj));
+}
+
 
   return (
   <DefaultLayout>
@@ -103,13 +104,26 @@ function BookingCar({ match }) {
             else {
               setdriver(false)
             }
-          }}>Driver Requested ($35/hr)</Checkbox>
+          }}
+          >
+            Driver Requested ($35/hr)
+          </Checkbox>
+
           <h3 className="">Total Booking Price : ${totalAmount}</h3>
-          <button className="btn4" onClick={bookNow}><b>Book Your Ride</b></button>
+
+          <StripeCheckout
+          shippingAddress
+            token={onToken}
+            amount={totalAmount * 100}
+            stripeKey="pk_test_51KOtvLAN05eIhtIj1iz7Ajp76EUwp5NorezDTrub1s2g1BnYDtwD1Q9QwsXZp172uwICnxYGzkNCgTWSAER58oI100QqAdGTzF"
+          >
+            <button className="btn4">
+              <b>Book Your Ride</b>
+            </button>
+          </StripeCheckout>
+
         </div>
         )}
-
-
 
       </Col>
 
@@ -118,7 +132,7 @@ function BookingCar({ match }) {
     <Modal visible={showModal} closable={false} footer={false} bodyStyle={{fontWeight: 'bold', backgroundColor: '#e9eef0', border: '1px #000 solid'}} title=<b>Booked time slots</b>>
       <div className="p-2">
         {car.bookedTimeSlots.map(slot => {
-          return <button className="btn4 mt-2">{slot.from} - {slot.to} </button>
+          return <button className="btn4 mt-2"><b>{slot.from} - {slot.to}</b></button>
         })}
 
         <div className="text-right mt-5">
