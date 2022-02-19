@@ -35,17 +35,17 @@ function BookingCar({ match }) {
 
     setTotalAmount((totalHours * car.rentPerHour))
     if (driver) {
-      setTotalAmount(totalAmount + (20 * totalHours))
+      setTotalAmount(totalAmount + (35 * totalHours))
     }
 
   }, [driver, totalHours])
 
   function selectTimeSlots(values) {
 
-    setFrom(moment(values[0]).format('MMM DD YYYY h:00 a'));
-    setTo(moment(values[1]).format('MMM DD YYYY h:00 a'));
+    setFrom(moment(values[0]).format('MMM DD YYYY hh:00 a'));
+    setTo(moment(values[1]).format('MMM DD YYYY hh:00 a'));
 
-    setTotalHours(1 + (values[1].diff(values[0], 'Hours')));
+    setTotalHours( (values[1].diff(values[0], 'Hours')));
 
   }
 
@@ -76,21 +76,24 @@ function BookingCar({ match }) {
       </Col>
 
       <Col lg={10} sm={24} xs={24} className='text-right'>
-        <Divider type='horizontal' dashed style={{fontWeight: 'bold'}} >Car Info</Divider>
+        <Divider type='horizontal' dashed >Car Info</Divider>
         <div className="" style={{ textAlign: 'right' }} >
           <p>{car.name}</p>
-          <p>{car.rentPerHour} Rent Per Hour</p>
+          <p>Max. Occupants : {car.capacity}</p>
           <p>Fuel Type : {car.fuelType}</p>
-          <p>Max Persons : {car.capacity}</p>
+          <p>${car.rentPerHour} /Hour</p>
         </div>
 
-        <Divider type='horizontal' dashed style={{fontWeight: 'bold'}} >Select Time Slots</Divider>
+        <Divider type='horizontal' dashed >Select Time Slots</Divider>
         {/* <RangePicker format='MMM DD YYYY h:00 a' onChange={selectTimeSlots} /> */}
-        <RangePicker showTime={{format: 'h:00 a'}} format='MMM DD YYYY h:00 a' onChange={selectTimeSlots} />
-
-        <div className="">
-          <p>Total Hours : <b>{totalHours}</b></p>
-          <p>Price Per Hour : <b>{car.rentPerHour}</b></p>
+        <RangePicker showTime={{format: 'hh:00 a'}} format='MMM DD YYYY hh:00 a' onChange={selectTimeSlots} />
+        <br />
+        <button className="btn4 mt-2" onClick={() => {setShowModal(true)}}>Booked Slots
+        </button>
+        { from && to && (
+          <div className="">
+          <p>Hours Booked : <b>{totalHours}</b></p>
+          <p>Price /Hour : <b>${car.rentPerHour}</b></p>
           <Checkbox onChange = {(e) => {
             if(e.target.checked)
             {
