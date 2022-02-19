@@ -1,4 +1,4 @@
-import { Checkbox, Col, DatePicker, Divider, Row } from 'antd';
+import { Checkbox, Col, DatePicker, Divider, Modal, Row } from 'antd';
 import moment from 'moment';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -20,6 +20,7 @@ function BookingCar({ match }) {
   const [totalHours, setTotalHours] = useState(0)
   const [driver, setdriver] = useState(false)
   const [totalAmount, setTotalAmount] = useState(0)
+  const [showModal, setShowModal] = useState(false)
 
   useEffect(() => {
 
@@ -102,14 +103,31 @@ function BookingCar({ match }) {
             else {
               setdriver(false)
             }
-          }}>Driver Required (20/hr)</Checkbox>
-          <h3 className="">Total Amount : {totalAmount}</h3>
-          <button className="btn4" onClick={bookNow}><b>Save Your Booking</b></button>
+          }}>Driver Requested ($35/hr)</Checkbox>
+          <h3 className="">Total Booking Price : ${totalAmount}</h3>
+          <button className="btn4" onClick={bookNow}><b>Book Your Ride</b></button>
         </div>
+        )}
+
+
 
       </Col>
 
     </Row>
+    {car.name && (
+    <Modal visible={showModal} closable={false} footer={false} bodyStyle={{fontWeight: 'bold', backgroundColor: '#e9eef0', border: '1px #000 solid'}} title=<b>Booked time slots</b>>
+      <div className="p-2">
+        {car.bookedTimeSlots.map(slot => {
+          return <button className="btn4 mt-2">{slot.from} - {slot.to} </button>
+        })}
+
+        <div className="text-right mt-5">
+          <button className="btn4 mt-2" onClick={() => {setShowModal(false)}}>CLOSE</button>
+        </div>
+      </div>
+
+    </Modal>
+    )}
   </DefaultLayout>
   );
 }
