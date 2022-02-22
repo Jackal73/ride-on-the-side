@@ -1,9 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
-
-
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap");
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
@@ -12,9 +10,8 @@ code {
   border-top: 1px dashed #000 !important;
 }
 
-
 .bs1 {
-  box-shadow: rgba(0, 0, 0, 0.2) 0px 60px 40px -7px;
+  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
 }
 
 .spinner {
@@ -24,14 +21,10 @@ code {
   z-index: 999;
 }
 
-/* Modal.bold {
-  font-weight: bold !important;
-} */
-
 h1 {
   font-size: 30px;
   font-weight: bold;
-  color: #af1c1c;
+  color: #af1c1c !important;
 }
 
 h3 {
@@ -41,8 +34,12 @@ h3 {
 p {
   margin: 5px !important;
   padding: 0;
-  font-weight: semi-bold;
+
   color: rgba(0, 0, 0, 0.8);
+}
+
+p span {
+  color: #af1c1c;
 }
 
 .btn1 {
@@ -78,7 +75,7 @@ p {
   /* outline: none !important; */
   padding: 5px 15px !important;
   border: 1px solid rgba(255, 0, 0, 0) !important;
-  }
+}
 
 .btn1:hover {
   color: #000 !important;
@@ -89,21 +86,12 @@ p {
   /* color: #000 !important; */
   color: #af1c1c !important;
   border: 1px solid #af1c1c !important;
-
-}
-
-.btn3:hover {
-  /* border: 1px solid #af1c1c !important; */
 }
 
 .btn4:hover {
   border: 1px solid #af1c1c !important;
   color: #af1c1c !important;
 }
-
-
-
-
 
 .appear {
   opacity: 0 !important;
@@ -117,8 +105,6 @@ button {
   padding: 3px 10px !important;
   /* color: #000 !important; */
   color: #af1c1c !important;
-
-
 }
 
 button:hover {
@@ -127,7 +113,6 @@ button:hover {
 
 .header {
   padding: 15px 0 0 0;
-
 }
 
 .header h1 {
@@ -147,19 +132,16 @@ button:hover {
 
 .content {
   min-height: 90vh;
-
 }
 
 body {
   margin: 0;
-  font-family: 'Montserrat', sans-serif !important;
+  font-family: "Montserrat", sans-serif !important;
   /* font-weight: bold !important; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #8b994fbd;
-
+  background-color: #8b944fbd;
 }
-
 
 /* UI purposes. No functionality */
 .card {
@@ -173,14 +155,12 @@ body {
 .card:hover {
   height: 220px;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
-
 }
 
 .card:hover > .card-content {
   opacity: 1;
   transform: translateY(-40px);
   transition: 0.4s !important;
-
 }
 
 .card-img {
@@ -188,19 +168,14 @@ body {
   width: auto;
   border-radius: 5px;
   transform: translateY(-50px);
-
-
-
 }
 
 .card-content {
   transform: translateY(-200px);
   opacity: 0;
   transition: 0.3s;
-
 }
 /* ------------------- End ------------------ */
-
 
 .login {
   background-color: #000;
@@ -216,7 +191,6 @@ body {
 
 .login-form {
   background-color: #1f1f1f;
-
 }
 
 .login-form input {
