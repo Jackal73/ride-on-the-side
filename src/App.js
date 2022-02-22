@@ -6,6 +6,8 @@ import BookingCar from './pages/BookingCar.js';
 import Home from './pages/Home.js';
 import Login from './pages/Login.js';
 import Register from './pages/Register.js';
+import UserBookings from './pages/UserBookings';
+
 
 
 
@@ -19,6 +21,7 @@ function App() {
                 <Route path='/login' exact component={Login} />
                 <Route path='/register' exact component={Register} />
                 <ProtectedRoute path='/booking/:carid' exact component={BookingCar} />
+                <ProtectedRoute path='/userbookings' exact component={UserBookings} />
 
             </BrowserRouter>
         </div>

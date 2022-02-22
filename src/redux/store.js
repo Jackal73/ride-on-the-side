@@ -1,23 +1,21 @@
-import { applyMiddleware, combineReducers, createStore } from 'redux';
-import { composeWithDevTools } from 'redux-devtools-extension';
-import thunk from 'redux-thunk';
-import { alertsReducer } from './reducers/alertsReducer';
-import { carsReducer } from './reducers/carsReducer';
-
+import { applyMiddleware, combineReducers, createStore } from "redux";
+import { composeWithDevTools } from "redux-devtools-extension";
+import thunk from "redux-thunk";
+import { alertsReducer } from "./reducers/alertsReducer";
+import { bookingsReducer } from "./reducers/bookingsReducer";
+import { carsReducer } from "./reducers/carsReducer";
 
 const composeEnhancers = composeWithDevTools({});
 
 const rootReducer = combineReducers({
   carsReducer,
-  alertsReducer
-})
+  alertsReducer,
+  bookingsReducer,
+});
 
 const store = createStore(
   rootReducer,
-  composeEnhancers(
-    applyMiddleware(thunk)
-
-  )
+  composeEnhancers(applyMiddleware(thunk))
 );
 
-export default store
+export default store;

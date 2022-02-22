@@ -1,30 +1,26 @@
-import React from 'react';
-import { Button, Dropdown, Menu, Col, Row } from 'antd';
-
+import React from "react";
+import { Button, Dropdown, Menu, Col, Row } from "antd";
+import { Link } from "react-router-dom";
 
 function DefaultLayout(props) {
-  const user = JSON.parse(localStorage.getItem('user'));
+  const user = JSON.parse(localStorage.getItem("user"));
   const menu = (
     <Menu>
-    <Menu.Item>
-        <a href="/">
-          Home
-        </a>
+      <Menu.Item>
+        <a href="/">Home</a>
       </Menu.Item>
       <Menu.Item>
-        <a href="/userbookings">
-          Bookings
-        </a>
+        <a href="/userbookings">Bookings</a>
       </Menu.Item>
       <Menu.Item>
-        <a href="/admin">
-          Profile
-        </a>
+        <a href="/admin">Profile</a>
       </Menu.Item>
-      <Menu.Item onClick={() => {
-        localStorage.removeItem('user');
-        window.location.href='/login';
-      }}>
+      <Menu.Item
+        onClick={() => {
+          localStorage.removeItem("user");
+          window.location.href = "/login";
+        }}
+      >
         <li>Logout</li>
       </Menu.Item>
     </Menu>
@@ -35,7 +31,11 @@ function DefaultLayout(props) {
         <Row gutter={16} justify="center">
           <Col lg={20} sm={24} xs={24}>
             <div className="d-flex justify-content-between">
-              <h1>'Ride On The Side</h1>
+              <h1>
+                <Link to="/" style={{ color: "#af1c1c" }}>
+                  DRIVE_STYLe
+                </Link>
+              </h1>
               <Dropdown overlay={menu} placement="bottomCenter">
                 <Button>{user.username}</Button>
               </Dropdown>
@@ -43,9 +43,7 @@ function DefaultLayout(props) {
           </Col>
         </Row>
       </div>
-      <div className="content">
-        {props.children}
-      </div>
+      <div className="content">{props.children}</div>
     </div>
   );
 }
