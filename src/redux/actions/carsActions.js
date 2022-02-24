@@ -26,7 +26,7 @@ export const getAllCars = () => async (dispatch) => {
   }
 };
 
-export const addCars = (reqObj) => async (dispatch) => {
+export const addCar = (reqObj) => async (dispatch) => {
   dispatch({
     type: "LOADING",
     payload: true,
