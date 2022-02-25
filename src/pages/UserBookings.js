@@ -3,8 +3,8 @@ import moment from "moment";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import DefaultLayout from "../components/DefaultLayout";
-import { getAllBookings } from "../redux/actions/bookingActions";
 import Spinner from "../components/Spinner";
+import { getAllBookings } from "../redux/actions/bookingActions";
 
 function UserBookings() {
   const dispatch = useDispatch();
@@ -18,7 +18,7 @@ function UserBookings() {
   return (
     <DefaultLayout>
       {loading && <Spinner />}
-      <h2 className="text-center mt-3">My Bookings</h2>
+      <h2 className="text-center mt-4 pt-3">My Bookings</h2>
       <Row justify="center" gutter={16}>
         <Col lg={16} sm={24}>
           {bookings
@@ -32,39 +32,29 @@ function UserBookings() {
                   style={{ backgroundColor: "rgba(231, 224, 224, .8)" }}
                   gutter={16}
                 >
-                  <Col lg={8} sm={24}>
+                  <Col lg={7} sm={24}>
                     <h6 className="">
                       <b>{booking.car.name}</b>
                     </h6>
+                    <p>Hours Booked : {booking.totalHours}</p>
+                    <p>Price /Hr : ${booking.car.rentPerHour}</p>
                     <p>
-                      Hours Booked : <b>{booking.totalHours}</b>
-                    </p>
-                    <p>
-                      Price /Hr : <b>${booking.car.rentPerHour}</b>
-                    </p>
-                    <p>
-                      Total Booking Price :{" "}
+                      <b>Total Booking Price : </b>
                       <span>
                         <b>${booking.totalAmount}</b>
                       </span>
                     </p>
                   </Col>
-                  <Col lg={8} sm={24}>
-                    <p>
-                      Transaction Id : <b>{booking.transactionId}</b>
-                    </p>
-                    <p>
-                      From: <b>{booking.bookedTimeSlots.from}</b>
-                    </p>
-                    <p>
-                      To: <b>{booking.bookedTimeSlots.to}</b>
-                    </p>
+                  <Col lg={10} sm={24}>
+                    <p>Transaction Id : {booking.transactionId}</p>
+                    <p>From: {booking.bookedTimeSlots.from}</p>
+                    <p>To: {booking.bookedTimeSlots.to}</p>
                     <p>
                       Date Of Booking:{" "}
-                      <b>{moment(booking.createdAt).format("MMM DD YYYY")}</b>
+                      {moment(booking.createdAt).format("MMM DD YYYY")}
                     </p>
                   </Col>
-                  <Col lg={8} sm={24} className="text-right">
+                  <Col lg={7} sm={24} className="text-right">
                     <img
                       style={{ borderRadius: 15 }}
                       src={booking.car.image}

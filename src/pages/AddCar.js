@@ -2,8 +2,8 @@ import { Col, Form, Input, Row } from "antd";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import DefaultLayout from "../components/DefaultLayout";
-import { addCar } from "../redux/actions/carsActions";
 import Spinner from "../components/Spinner";
+import { addCar } from "../redux/actions/carsActions";
 
 function AddCar() {
   const dispatch = useDispatch();
@@ -16,9 +16,13 @@ function AddCar() {
   return (
     <DefaultLayout>
       {loading && <Spinner />}
-      <Row justify="center" className="mt-5">
+      <Row justify="center" className="mt-4">
         <Col lg={12} sm={24} xs={24}>
-          <Form className="bs1 p-2" layout="vertical" onFinish={onFinish}>
+          <Form
+            className="bs1 p-3 mt-4 EB dark"
+            layout="vertical"
+            onFinish={onFinish}
+          >
             <h2>Add New Car</h2>
             <hr />
             <Form.Item
@@ -57,7 +61,9 @@ function AddCar() {
               <Input />
             </Form.Item>
             <div className="text-right">
-              <button className="btn4">ADD CAR</button>
+              <button className="btn4">
+                <b>ADD CAR</b>
+              </button>
             </div>
           </Form>
         </Col>

@@ -12,20 +12,20 @@ const { RangePicker } = DatePicker;
 function Home() {
   const { cars } = useSelector((state) => state.carsReducer);
   const { loading } = useSelector((state) => state.alertsReducer);
-  const [totalCars, setTotalcars] = useState([]);
+  const [totalCars, setTotalCars] = useState([]);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getAllCars());
-  }, []);
+  }, [dispatch]);
 
   useEffect(() => {
-    setTotalcars(cars);
+    setTotalCars(cars);
   }, [cars]);
 
   function setFilter(values) {
-    var selectedFrom = moment(values[0], "MMM DD YYYY h:00 a");
-    var selectedTo = moment(values[1], "MMM DD YYYY h:00 a");
+    var selectedFrom = moment(values[0], "MMM DD yyyy h:00 a");
+    var selectedTo = moment(values[1], "MMM DD yyyy h:00 a");
 
     var temp = [];
 
@@ -46,23 +46,23 @@ function Home() {
         }
       }
     }
-    setTotalcars(temp);
+    setTotalCars(temp);
   }
 
   return (
     <DefaultLayout>
-      <Row className="mt-3" justify="center">
-        <Col lg={20} sm={24} className="d-flex justify-content-left">
-          <h6 className="mb-0 !Important">
+      <Row className="mt-4" justify="center">
+        <Col lg={20} sm={24} className="mt-4 d-flex justify-content-center">
+          <h5 className="pt-0 mb-0 !Important">
             <b>* Select Preferred Time Slot For Availability</b>
-          </h6>
+          </h5>
         </Col>
       </Row>
       <Row className="mt-3" justify="center">
-        <Col lg={20} sm={24} className="d-flex justify-content-left">
+        <Col lg={20} sm={24} className="d-flex justify-content-center">
           <RangePicker
             showTime={{ format: "h:00 a" }}
-            format="MMM DD YYYY h:00 a"
+            format="MMM DD yyyy h:00 a"
             onChange={setFilter}
           />
         </Col>
@@ -70,16 +70,18 @@ function Home() {
 
       {loading === true && <Spinner />}
 
-      <Row justify="center" gutter={16} className="">
+      <Row justify="center" gutter={16}>
         {totalCars.map((car) => {
           return (
-            <Col xl={5} lg={5} sm={12} xs={24}>
+            <Col lg={5} sm={24} xs={24}>
               <div className="card p-2 bs1">
                 <img src={car.image} className="card-img" alt="" />
 
                 <div className="card-content d-flex align-items-center justify-content-between">
-                  <div className="">
-                    <p>{car.name}</p>
+                  <div className="text-left pl-2">
+                    <p>
+                      <b>{car.name}</b>
+                    </p>
                     <p>${car.rentPerHour} Per Hour </p>
                   </div>
 
