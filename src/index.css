@@ -10,6 +10,10 @@ code {
   border-top: 1px dashed #000 !important;
 }
 
+.ant-row {
+  margin: 0 20 !important;
+}
+
 .bs1 {
   box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
 }
@@ -19,6 +23,18 @@ code {
   top: 50%;
   left: 50%;
   z-index: 999;
+}
+
+.fs {
+  font-size: 15px;
+}
+
+.fs1 {
+  font-size: 20px;
+}
+
+.fs2 {
+  font-size: 25px;
 }
 
 h1 {
@@ -131,7 +147,28 @@ button:hover {
 }
 
 .content {
-  min-height: 90vh;
+  min-height: 95vh;
+  opacity: 1 !important;
+  position: relative;
+}
+
+.content::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: url("https://images3.alphacoders.com/826/826231.jpg");
+  height: 100%;
+  width: 100%;
+  opacity: 0.3;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  z-index: -1;
+}
+
+.EB {
+  font-weight: bolder;
 }
 
 body {
@@ -141,6 +178,11 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #8b944fbd;
+}
+
+body,
+html {
+  overflow-x: hidden !important;
 }
 
 /* UI purposes. No functionality */
@@ -196,8 +238,15 @@ body {
 .login-form input {
   background-color: #333333 !important;
   border: none !important;
-  color: #fff;
+  color: #fff !important;
   opacity: 0.5;
+}
+
+Form Input {
+  background-color: rgba(131, 129, 129, 0.8) !important;
+  border: none !important;
+  color: #fff !important;
+  /* opacity: 0.6; */
 }
 
 .login-logo {
