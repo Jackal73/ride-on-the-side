@@ -4,6 +4,7 @@ import { BrowserRouter, Redirect, Route } from "react-router-dom";
 import "./App.css";
 import AddCar from "./pages/AddCar";
 import BookingCar from "./pages/BookingCar.js";
+import AdminHome from "./pages/AdminHome.js";
 import Home from "./pages/Home.js";
 import Login from "./pages/Login.js";
 import Register from "./pages/Register.js";
@@ -20,6 +21,7 @@ function App() {
         <ProtectedRoute path="/booking/:carid" exact component={BookingCar} />
         <ProtectedRoute path="/userbookings" exact component={UserBookings} />
         <ProtectedRoute path="/addcar" exact component={AddCar} />
+        <ProtectedRoute path="/admin" exact component={AdminHome} />
       </BrowserRouter>
     </div>
   );
