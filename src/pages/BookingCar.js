@@ -75,9 +75,7 @@ function BookingCar({ match }) {
 
         <Col lg={10} sm={48} xs={48} className="text-center">
           <Divider type="horizontal" dashed className="fs2">
-            <div className="fs2">
-              <b>Car Info</b>
-            </div>
+            <div className="fs2">Car Info</div>
           </Divider>
           <div className="EB fs text-center" style={{ textAlign: "right" }}>
             <p className="EB fs1">{car.name}</p>
@@ -87,9 +85,7 @@ function BookingCar({ match }) {
           </div>
 
           <Divider type="horizontal" dashed>
-            <div className="fs2">
-              <b>Select Time Slots</b>
-            </div>
+            <div className="fs2">Select Time Slots</div>
           </Divider>
           {/* <RangePicker format='MMM DD YYYY h:00 a' onChange={selectTimeSlots} /> */}
           <RangePicker
@@ -149,7 +145,7 @@ function BookingCar({ match }) {
           footer={false}
           bodyStyle={{
             fontWeight: "bold",
-            backgroundColor: "#e9eef0",
+            backgroundColor: "rgba(20, 224, 224, 1) !important",
             border: "1px #000 solid",
           }}
           title=<b>Booked time slots</b>

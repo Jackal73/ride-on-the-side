@@ -25,6 +25,17 @@ function AdminHome() {
 
   return (
     <DefaultLayout>
+      <Row gutter={16} className="mt-4 pt-4">
+        <Col lg={20} sm={24}>
+          <div className="text-right">
+            <button className="btn4">
+              <a href="/addcar">
+                <b>ADD CAR</b>
+              </a>
+            </button>
+          </div>
+        </Col>
+      </Row>
       {loading === true && <Spinner />}
 
       <Row justify="center" gutter={16}>

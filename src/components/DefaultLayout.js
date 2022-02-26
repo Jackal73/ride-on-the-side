@@ -13,7 +13,7 @@ function DefaultLayout(props) {
         <a href="/userbookings">Bookings</a>
       </Menu.Item>
       <Menu.Item>
-        <a href="/admin">Profile</a>
+        <a href="/admin">Admin</a>
       </Menu.Item>
       <Menu.Item
         onClick={() => {

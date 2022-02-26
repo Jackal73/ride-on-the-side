@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import DefaultLayout from "../components/DefaultLayout";
 import Spinner from "../components/Spinner";
-import { addCar, editCar, getAllCars } from "../redux/actions/carsActions";
+import { editCar, getAllCars } from "../redux/actions/carsActions";
 
 function EditCar({ match }) {
   const { cars } = useSelector((state) => state.carsReducer);
@@ -22,8 +22,8 @@ function EditCar({ match }) {
     }
   }, [cars]);
   function onFinish(values) {
-    values.bookedTimeSlots = [];
-    dispatch(addCar(values));
+    values._id = car._id;
+    dispatch(editCar(values));
     console.log(values);
   }
   return (
@@ -39,7 +39,16 @@ function EditCar({ match }) {
               onFinish={onFinish}
             >
               <h2>Edit Car</h2>
+              <div className="mb-3">
+                <img
+                  src={car.image}
+                  style={{ float: "center" }}
+                  className="carimg3 bs1"
+                  alt=""
+                />
+              </div>
               <h5>{car.name}</h5>
+
               <hr />
               <Form.Item
                 name="name"
@@ -76,7 +85,8 @@ function EditCar({ match }) {
               >
                 <Input />
               </Form.Item>
-              <div className="text-right">
+
+              <div className="text-right mb-2">
                 <button className="btn4">
                   <b>EDIT CAR</b>
                 </button>

@@ -51,3 +51,29 @@ export const addCar = (reqObj) => async (dispatch) => {
     });
   }
 };
+
+export const editCar = (reqObj) => async (dispatch) => {
+  dispatch({
+    type: "LOADING",
+    payload: true,
+  });
+
+  try {
+    await axios.post("/api/cars/editcar", reqObj);
+
+    dispatch({
+      type: "LOADING",
+      payload: false,
+    });
+    message.success("The Car was updated successfully");
+    setTimeout(() => {
+      window.location.href = "/";
+    }, 1000);
+  } catch (error) {
+    console.log(error);
+    dispatch({
+      type: "LOADING",
+      payload: false,
+    });
+  }
+};
