@@ -1,11 +1,11 @@
 import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
-import { Col, DatePicker, Row } from "antd";
+import { Col, DatePicker, Popconfirm, Row } from "antd";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import DefaultLayout from "../components/DefaultLayout";
 import Spinner from "../components/Spinner";
-import { getAllCars } from "../redux/actions/carsActions";
+import { deleteCar, getAllCars } from "../redux/actions/carsActions";
 
 const { RangePicker } = DatePicker;
 
@@ -60,10 +60,19 @@ function AdminHome() {
                         style={{ color: "green", cursor: "pointer" }}
                       />
                     </Link>
-                    <DeleteOutlined
-                      className=""
-                      style={{ color: "#af1c1c", cursor: "pointer" }}
-                    />
+                    <Popconfirm
+                      title="Are you sure to delete this Car?"
+                      onConfirm={() => {
+                        dispatch(deleteCar({ carid: car._id }));
+                      }}
+                      okText="Yes"
+                      cancelText="No"
+                    >
+                      <DeleteOutlined
+                        className=""
+                        style={{ color: "#af1c1c", cursor: "pointer" }}
+                      />
+                    </Popconfirm>
                   </div>
                 </div>
               </div>
