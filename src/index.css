@@ -39,12 +39,16 @@ code {
 
 h1 {
   font-size: 30px;
-  font-weight: bold;
+  font-weight: bolder;
   color: #af1c1c !important;
 }
 
 h3 {
   padding-top: 10px;
+}
+
+h5 {
+  /* color: #fff; */
 }
 
 p {
@@ -246,7 +250,12 @@ Form Input {
   background-color: rgba(131, 129, 129, 0.8) !important;
   border: none !important;
   color: #fff !important;
+  font-size: 16px !important;
   /* opacity: 0.6; */
+}
+
+Form label {
+  font-size: 16px !important;
 }
 
 .login-logo {
@@ -272,3 +281,19 @@ Form Input {
   border-radius: 10px;
   width: auto;
 }
+
+.carimg3 {
+  height: 140px;
+  border: 3px solid green;
+  border-radius: 20px;
+  width: auto;
+}
+
+.carimg4 {
+  height: 140px;
+  border: 3px solid green;
+  border-radius: 50%;
+  width: auto;
+}
+
+

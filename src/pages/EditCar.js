@@ -38,7 +38,7 @@ function EditCar({ match }) {
               layout="vertical"
               onFinish={onFinish}
             >
-              <h2>Edit Car</h2>
+              <h2 className="mt-2">Edit Car</h2>
               <div className="mb-3">
                 <img
                   src={car.image}
@@ -47,7 +47,7 @@ function EditCar({ match }) {
                   alt=""
                 />
               </div>
-              <h5>{car.name}</h5>
+              <h4>{car.name}</h4>
 
               <hr />
               <Form.Item
