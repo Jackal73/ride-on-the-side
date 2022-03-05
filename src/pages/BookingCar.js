@@ -137,28 +137,22 @@ function BookingCar({ match }) {
             </div>
           )}
         </Col>
-      </Row>
-      {car.name && (
-        <Modal
-          visible={showModal}
-          closable={false}
-          footer={false}
-          bodyStyle={{
-            fontWeight: "bold",
+        
+      {car.name && (        
+        <Modal visible={showModal} closable={false} footer={false}
+            bodyStyle={{ fontWeight: "bold",
             backgroundColor: "rgba(20, 224, 224, 1) !important",
-            border: "1px #000 solid",
-          }}
-          title=<b>Booked time slots</b>
-        >
+            border: "1px #000 solid" }}
+            title={<b>Booked time slots</b>}
+          >
           <div className="p-2">
             {car.bookedTimeSlots.map((slot) => {
-              return (
-                <button className="btn4 mt-2">
+              return <button className="btn4 mt-2">
                   <b>
                     {slot.from} - {slot.to}
                   </b>
                 </button>
-              );
+              
             })}
 
             <div className="text-right mt-5">
@@ -173,7 +167,9 @@ function BookingCar({ match }) {
             </div>
           </div>
         </Modal>
+        
       )}
+      </Row>
     </DefaultLayout>
   );
 }

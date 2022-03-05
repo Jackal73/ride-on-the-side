@@ -1,16 +1,17 @@
 const initialData = {
-  bookings: [],
+  bookings : [],
 };
 
-export const bookingsReducer = (state = initialData, action) => {
-  switch (action.type) {
-    case "GET_ALL_BOOKINGS": {
+export const bookingsReducer = (state=initialData, action) => {
+
+  switch(action.type)
+  {
+    case 'GET_ALL_BOOKINGS' : {
       return {
         ...state,
-        bookings: action.payload,
-      };
+        bookings : action.payload
+      }
     }
-    default:
-      return state;
+    default:return state
   }
-};
+}

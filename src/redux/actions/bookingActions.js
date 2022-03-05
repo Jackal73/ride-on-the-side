@@ -16,8 +16,8 @@ export const bookCar = (reqObj) => async (dispatch) => {
     });
     message.success("Your car and time slot have been booked!");
     setTimeout(() => {
-      window.location.href = "/userBookings";
-    }, 1000);
+      window.location.href = "/userbookings";
+    }, 500);
   } catch (error) {
     console.log(error);
     dispatch({

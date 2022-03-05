@@ -1,6 +1,6 @@
 import { Col, Row } from "antd";
 import moment from "moment";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import DefaultLayout from "../components/DefaultLayout";
 import Spinner from "../components/Spinner";
@@ -21,11 +21,8 @@ function UserBookings() {
       <h2 className="text-center mt-4 pt-3">My Bookings</h2>
       <Row justify="center" gutter={16}>
         <Col lg={16} sm={24}>
-          {bookings
-            .filter((o) => o.user === user._id)
-            .map((booking) => {
-              return (
-                <Row
+          {bookings.filter((o) => o.user === user._id).map((booking) => {
+              return <Row
                   className="bs1 m-2 text-left align-items-center "
                   // style={{ backgroundColor: "#c6d166" }}
                   // style={{ backgroundColor: "#8b944fbd" }}
@@ -63,8 +60,7 @@ function UserBookings() {
                       alt=""
                     />
                   </Col>
-                </Row>
-              );
+                </Row>              
             })}
         </Col>
       </Row>
