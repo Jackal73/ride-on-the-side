@@ -11,6 +11,8 @@ import Home from "./pages/Home.js";
 import Login from "./pages/Login.js";
 import Register from "./pages/Register.js";
 import UserBookings from "./pages/UserBookings";
+import EditProfile from "./pages/EditProfile";
+
 
 function App() {
   return (
@@ -25,6 +27,7 @@ function App() {
         <ProtectedRoute path="/addcar" exact component={AddCar} />
         <ProtectedRoute path="/editcar/:carid" exact component={EditCar} />
         <ProtectedRoute path="/admin" exact component={AdminHome} />
+        <ProtectedRoute path="/editprofile" exact component={EditProfile} />
       </BrowserRouter>
     </div>
   );

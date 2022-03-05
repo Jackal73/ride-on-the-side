@@ -13,8 +13,11 @@ function DefaultLayout(props) {
         <a href="/userbookings">Bookings</a>
       </Menu.Item>
       <Menu.Item>
-        <a href="/admin">Admin</a>
+        <a href="/editprofile">Profile</a>
       </Menu.Item>
+      <Menu.Item>
+        <a href="/admin">Admin</a>
+      </Menu.Item>      
       <Menu.Item
         onClick={() => {
           localStorage.removeItem("user");
@@ -31,13 +34,13 @@ function DefaultLayout(props) {
         <Row gutter={16} justify="center">
           <Col lg={20} sm={24} xs={24}>
             <div className="d-flex justify-content-between">
-              <h1>
+              <h1>              
                 <Link to="/" style={{ color: "#af1c1c" }}>
                   DRIVE_STYLe
-                </Link>
+                </Link>                
               </h1>
               <Dropdown overlay={menu} placement="bottomCenter">
-                <Button>{user.username}</Button>
+                <Button><b>{user.username}</b></Button>
               </Dropdown>
             </div>
           </Col>
