@@ -3,8 +3,8 @@ import moment from "moment";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import DefaultLayout from "../components/DefaultLayout";
-import { getAllBookings } from "../redux/actions/bookingActions";
 import Spinner from "../components/Spinner";
+import { getAllBookings } from "../redux/actions/bookingActions";
 
 function UserBookings() {
   const dispatch = useDispatch();
@@ -13,7 +13,7 @@ function UserBookings() {
   const user = JSON.parse(localStorage.getItem("user"));
   useEffect(() => {
     dispatch(getAllBookings());
-  }, []);
+  }, [dispatch]);
 
   return (
     <DefaultLayout>
@@ -21,12 +21,9 @@ function UserBookings() {
       <h2 className="text-center mt-3">My Bookings</h2>
       <Row justify="center" gutter={16}>
         <Col lg={16} sm={24}>
-          {bookings
-            .filter((o) => o.user === user._id)
-            .map((booking) => {
-              return (
-                <Row
-                  className="bs1 m-2 text-left align-items-center "
+          {bookings.filter((o) => o.user === user._id).map((booking) => {
+              // eslint-disable-next-line array-callback-return
+              return <Row className="bs1 m-2 text-left align-items-center"
                   // style={{ backgroundColor: "#c6d166" }}
                   // style={{ backgroundColor: "#8b944fbd" }}
                   style={{ backgroundColor: "rgba(231, 224, 224, .8)" }}
@@ -43,7 +40,7 @@ function UserBookings() {
                       Price /Hr : <b>${booking.car.rentPerHour}</b>
                     </p>
                     <p>
-                      Total Booking Price :{" "}
+                      Total Booking Price :" "
                       <span>
                         <b>${booking.totalAmount}</b>
                       </span>
@@ -60,7 +57,7 @@ function UserBookings() {
                       To: <b>{booking.bookedTimeSlots.to}</b>
                     </p>
                     <p>
-                      Date Of Booking:{" "}
+                      Date Of Booking:" "
                       <b>{moment(booking.createdAt).format("MMM DD YYYY")}</b>
                     </p>
                   </Col>
@@ -74,8 +71,9 @@ function UserBookings() {
                     />
                   </Col>
                 </Row>
-              );
+
             })}
+          ;
         </Col>
       </Row>
     </DefaultLayout>
@@ -83,3 +81,4 @@ function UserBookings() {
 }
 
 export default UserBookings;
+
