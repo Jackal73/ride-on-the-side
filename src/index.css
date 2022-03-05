@@ -42,6 +42,29 @@ p span {
   color: #af1c1c;
 }
 
+.content {
+  min-height: 95vh;
+  /*min-height: 90vh;*/
+  /* z-index: 99; */
+  opacity: 1 !important;
+  position: relative;
+}
+
+.content::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: url("https://images3.alphacoders.com/826/826231.jpg");
+  height: 100%;
+  width: 100%;
+  opacity: 0.3;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  z-index: -1;
+}
+
 .btn1 {
   box-shadow: none !important;
   background-color: rgba(158, 196, 187, 0.507) !important;
@@ -130,9 +153,9 @@ button:hover {
   outline: none !important;
 }
 
-.content {
+/* .content {
   min-height: 90vh;
-}
+} */
 
 body {
   margin: 0;
